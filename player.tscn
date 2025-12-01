@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpmf2jtdqpn7e"]
+
+[ext_resource type="Script" uid="uid://c737q5oubheb1" path="res://player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://b506q5bbhrnrd" path="res://assets/SawBlade.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://byqcoyblixtu0" path="res://assets/Spark.png" id="3_sweqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dm0k"]
+radius = 38.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_i3pqv")
+speed = 400.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7dm0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_hqtel")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 250
+texture = ExtResource("3_sweqy")
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 32.75
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 11.3
+initial_velocity_max = 826.15

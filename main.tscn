@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddmxshypgjdys"]
+
+[ext_resource type="PackedScene" uid="uid://cpmf2jtdqpn7e" path="res://player.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(288, 202)
+
+[node name="Player2" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(711, 187)
+
+[node name="Player3" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(461, 391)
+
+[node name="Player4" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(741, 376)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-27, 18)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(27, -18, 27, 622, 1179, 622, 1179, -18, 1115, -18, 91, -18, 91, 46, 1115, 46, 1115, 558, 91, 558, 91, -18)
