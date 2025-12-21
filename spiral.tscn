@@ -1,26 +1,37 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpmf2jtdqpn7e"]
+[gd_scene load_steps=10 format=3 uid="uid://bgewc8pse2bbf"]
 
-[ext_resource type="Script" uid="uid://c737q5oubheb1" path="res://player.gd" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://b506q5bbhrnrd" path="res://assets/SawBlade.png" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://owyxh4p3ei8d" path="res://assets/SawBladeNormal.png" id="3_hqtel"]
-[ext_resource type="Texture2D" uid="uid://byqcoyblixtu0" path="res://assets/Spark.png" id="3_sweqy"]
-[ext_resource type="Texture2D" uid="uid://dc7yvam7xfmvc" path="res://assets/light.png" id="5_sweqy"]
+[ext_resource type="Script" uid="uid://uals2iow2oxe" path="res://spiral.gd" id="1_n4uok"]
+[ext_resource type="Texture2D" uid="uid://b506q5bbhrnrd" path="res://assets/SawBlade.png" id="2_8jjpf"]
+[ext_resource type="Texture2D" uid="uid://owyxh4p3ei8d" path="res://assets/SawBladeNormal.png" id="3_c7q4l"]
+[ext_resource type="Texture2D" uid="uid://byqcoyblixtu0" path="res://assets/Spark.png" id="4_6bi33"]
+[ext_resource type="Texture2D" uid="uid://dc7yvam7xfmvc" path="res://assets/light.png" id="5_581l3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4uok"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dm0k"]
 radius = 33.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sweqy"]
-diffuse_texture = ExtResource("2_hqtel")
-normal_texture = ExtResource("3_hqtel")
+diffuse_texture = ExtResource("2_8jjpf")
+normal_texture = ExtResource("3_c7q4l")
 
 [sub_resource type="Gradient" id="Gradient_sweqy"]
 offsets = PackedFloat32Array(0, 0.91780823, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.9520548, 1, 1, 1, 0)
 
-[node name="Player" type="CharacterBody2D" groups=["spiral"]]
-motion_mode = 1
-script = ExtResource("1_i3pqv")
-speed = 400.0
+[node name="Spiral" type="RigidBody2D" groups=["spiral"]]
+position = Vector2(0, -1)
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_n4uok")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 4
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_n4uok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -33,7 +44,7 @@ texture = SubResource("CanvasTexture_sweqy")
 unique_name_in_owner = true
 emitting = false
 amount = 200
-texture = ExtResource("3_sweqy")
+texture = ExtResource("4_6bi33")
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
@@ -53,7 +64,7 @@ color_ramp = SubResource("Gradient_sweqy")
 unique_name_in_owner = true
 emitting = false
 amount = 200
-texture = ExtResource("3_sweqy")
+texture = ExtResource("4_6bi33")
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
@@ -75,7 +86,9 @@ color_ramp = SubResource("Gradient_sweqy")
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 color = Color(1, 1, 0.3372549, 1)
-energy = 16.0
+energy = 0.0
 shadow_enabled = true
-texture = ExtResource("5_sweqy")
+texture = ExtResource("5_581l3")
 height = 30.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

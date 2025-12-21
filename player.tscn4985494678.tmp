@@ -17,8 +17,7 @@ normal_texture = ExtResource("3_hqtel")
 offsets = PackedFloat32Array(0, 0.91780823, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.9520548, 1, 1, 1, 0)
 
-[node name="Player" type="CharacterBody2D" groups=["spiral"]]
-motion_mode = 1
+[node name="Player" type="RigidBody2D" groups=["spiral"]]
 script = ExtResource("1_i3pqv")
 speed = 400.0
 
@@ -35,7 +34,6 @@ emitting = false
 amount = 200
 texture = ExtResource("3_sweqy")
 lifetime = 0.3
-one_shot = true
 explosiveness = 1.0
 randomness = 1.0
 emission_shape = 1
