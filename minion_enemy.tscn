@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct37r8nal7ipw"]
+[gd_scene load_steps=7 format=3 uid="uid://ct37r8nal7ipw"]
 
 [ext_resource type="Script" uid="uid://uhhe0puk768h" path="res://minion_enemy.gd" id="1_s6oga"]
 [ext_resource type="Texture2D" uid="uid://bneudr1v6v5ir" path="res://assets/Zombie1.png" id="2_prgmk"]
@@ -10,7 +10,12 @@ normal_texture = ExtResource("3_f0j2m")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s6oga"]
 
+[sub_resource type="Curve" id="Curve_prgmk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.8779071, 1), 0.0, 0.0, 0, 0, Vector2(0.9709303, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [node name="MinionEnemy" type="RigidBody2D" groups=["minion"]]
+position = Vector2(1, 1)
 mass = 0.001
 gravity_scale = 0.0
 script = ExtResource("1_s6oga")
@@ -23,15 +28,20 @@ shape = SubResource("CircleShape2D_s6oga")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 16
-lifetime = 0.5
+amount = 60
+lifetime = 1.2
 one_shot = true
-explosiveness = 1.0
+speed_scale = 2.0
+explosiveness = 0.56
+lifetime_randomness = 0.22
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
-initial_velocity_max = 160.19
+initial_velocity_max = 75.0
+angular_velocity_min = -475.06
+angular_velocity_max = 11.15
 scale_amount_min = 0.0
-scale_amount_max = 13.26
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_prgmk")
 color = Color(0.62, 0.04959999, 0.2017065, 1)

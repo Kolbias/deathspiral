@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dm802ygqj8e3b"]
+
+[ext_resource type="FontFile" uid="uid://b0c84owjq1fp3" path="res://assets/alarm clock.ttf" id="1_0udr5"]
+
+[resource]
+default_font = ExtResource("1_0udr5")
+default_font_size = 32
+Label/colors/font_color = Color(0.88235295, 0.65882355, 0.27058825, 1)

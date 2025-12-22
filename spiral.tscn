@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bgewc8pse2bbf"]
 
 [ext_resource type="Script" uid="uid://uals2iow2oxe" path="res://spiral.gd" id="1_n4uok"]
-[ext_resource type="Texture2D" uid="uid://b506q5bbhrnrd" path="res://assets/SawBlade.png" id="2_8jjpf"]
-[ext_resource type="Texture2D" uid="uid://owyxh4p3ei8d" path="res://assets/SawBladeNormal.png" id="3_c7q4l"]
+[ext_resource type="Texture2D" uid="uid://3enttudjhb3v" path="res://assets/SpiralBlade2.png" id="2_n4uok"]
+[ext_resource type="Texture2D" uid="uid://b0u2fkptsatgv" path="res://assets/SpiralBlade2Normal.png" id="3_8jjpf"]
 [ext_resource type="Texture2D" uid="uid://byqcoyblixtu0" path="res://assets/Spark.png" id="4_6bi33"]
 [ext_resource type="Texture2D" uid="uid://dc7yvam7xfmvc" path="res://assets/light.png" id="5_581l3"]
 
@@ -11,11 +11,11 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dm0k"]
-radius = 33.0
+radius = 43.011627
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_sweqy"]
-diffuse_texture = ExtResource("2_8jjpf")
-normal_texture = ExtResource("3_c7q4l")
+[sub_resource type="CanvasTexture" id="CanvasTexture_c7q4l"]
+diffuse_texture = ExtResource("2_n4uok")
+normal_texture = ExtResource("3_8jjpf")
 
 [sub_resource type="Gradient" id="Gradient_sweqy"]
 offsets = PackedFloat32Array(0, 0.91780823, 1)
@@ -37,7 +37,7 @@ unique_name_in_owner = true
 shape = SubResource("CircleShape2D_7dm0k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("CanvasTexture_sweqy")
+texture = SubResource("CanvasTexture_c7q4l")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
@@ -90,12 +90,12 @@ shadow_enabled = true
 texture = ExtResource("5_581l3")
 height = 30.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
-position_smoothing_enabled = true
-
-[node name="Camera2D2" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
-position_smoothing_enabled = true
+[node name="SpeedLight" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+color = Color(0.5291732, 0.6815928, 1, 1)
+energy = 9.01
+texture = ExtResource("5_581l3")
+texture_scale = 0.5
+height = 5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

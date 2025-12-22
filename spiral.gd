@@ -16,6 +16,18 @@ func _ready() -> void:
 	
 	linear_velocity = start_vel
 
+func _process(delta: float) -> void:
+	if linear_velocity.length() <= 100:
+		var tween = create_tween()
+		tween.tween_property(%SpeedLight, "color", Color(0.949, 0.0, 0.0, 1.0), 0.1)
+	if linear_velocity.length() >= 100:
+		var tween = create_tween()
+		tween.tween_property(%SpeedLight, "color", Color(0.0, 0.773, 0.0, 1.0), 0.1)
+	if linear_velocity.length() >= 1000:
+		var tween = create_tween()
+		tween.tween_property(%SpeedLight, "color", Color(1.0, 0.773, 0.0, 1.0), 0.1)
+	
+
 func _physics_process(delta: float) -> void:
 	#print(linear_velocity.length())
 	if linear_velocity.length() >= 2000.0:
