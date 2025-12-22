@@ -192,15 +192,13 @@ shadow_enabled = true
 texture = ExtResource("4_1bvp3")
 
 [node name="PointLight2D2" type="PointLight2D" parent="Game"]
-position = Vector2(582, 346)
-color = Color(0.8980392, 0.9372549, 0.9372549, 1)
-energy = 2.17
+position = Vector2(575, 304)
+color = Color(1, 0, 0.12941177, 1)
+energy = 4.87
 shadow_enabled = true
 texture = ExtResource("4_1bvp3")
-texture_scale = 2.46
 
 [node name="PointLight2D3" type="PointLight2D" parent="Game"]
-visible = false
 position = Vector2(883, 286)
 color = Color(0, 1, 0.20392157, 1)
 energy = 4.87

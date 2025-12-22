@@ -38,10 +38,16 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("paddle"):
 		print("paddle hit!")
 		linear_velocity *= 2.0
-	else:
-		linear_velocity *= 0.7
-	
-	# 2. Visuals
+	if body.is_in_group("minion"):
+		print("minion detected!")
+		linear_velocity *= 0.99
+		body.destroy()
+		return
+	_animate_sparks()
+	linear_velocity *= 0.7
+
+
+func _animate_sparks():
 	particles.emitting = true
 	var tween = create_tween()
 	%PointLight2D.energy = 4.25

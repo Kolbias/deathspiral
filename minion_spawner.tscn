@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc5q04q3sfg51"]
+
+[ext_resource type="Script" uid="uid://b7ud28d8wmifr" path="res://minion_spawner.gd" id="1_s45r0"]
+[ext_resource type="PackedScene" uid="uid://ct37r8nal7ipw" path="res://minion_enemy.tscn" id="2_oo0ga"]
+
+[node name="MinionSpawner" type="Node2D"]
+script = ExtResource("1_s45r0")
+minion_scene = ExtResource("2_oo0ga")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

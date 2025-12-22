@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct37r8nal7ipw"]
+
+[ext_resource type="Script" uid="uid://uhhe0puk768h" path="res://minion_enemy.gd" id="1_s6oga"]
+[ext_resource type="Texture2D" uid="uid://bneudr1v6v5ir" path="res://assets/Zombie1.png" id="2_prgmk"]
+[ext_resource type="Texture2D" uid="uid://bunl5dc4asrib" path="res://assets/Zombie1Normal.png" id="3_f0j2m"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_as65e"]
+diffuse_texture = ExtResource("2_prgmk")
+normal_texture = ExtResource("3_f0j2m")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6oga"]
+
+[node name="MinionEnemy" type="RigidBody2D" groups=["minion"]]
+mass = 0.001
+gravity_scale = 0.0
+script = ExtResource("1_s6oga")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_as65e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s6oga")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 160.19
+scale_amount_min = 0.0
+scale_amount_max = 13.26
+color = Color(0.62, 0.04959999, 0.2017065, 1)
